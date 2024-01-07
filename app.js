@@ -3,7 +3,7 @@ const app = express();
 const bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({extended: true}));
 
-
+app.use(express.static("public"));
 app.set('view engine', 'ejs');
 let items = ["DSA","kubernetes","python"];
 
