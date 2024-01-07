@@ -18,9 +18,6 @@ app.get("/",function(req,res){
  };
  let day= today.toLocaleDateString("en-US",options);
 
- 
- console.log();
-
 
 res.render('list',{ kindofday: day,newitem:items });
 

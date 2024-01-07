@@ -11,22 +11,28 @@
 <h1>    <%=kindofday%> </h1>
     </div>
 
-<ul> 
+    <div class="box">
+        <% for(var i=0;i<newitem.length;i++){ %>
+            <div class="item">
+            <input type="checkbox">
+            <p><%=newitem[i]%></p>
+            </div>
+        <%}%> 
 
-<% for(var i=0;i<newitem.length;i++){ %>
-    <li><%=newitem[i]%></li> 
-<%}%> 
+           <form class="item" action="/" method="post">
+            <input type="text" name="newitem" placeholder="New Item"> 
+            <button type="submit" name="button">+</button>
+            
+            </form> 
+            
+        
+    </div> 
 
 
 
 
-</ul>
 
-<form action="/" method="post">
-<input type="text" name="newitem">
-<button type="submit" name="button">ADD</button>
 
-</form>
 
  
 </body>
