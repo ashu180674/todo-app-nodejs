@@ -1,6 +1,8 @@
+
 const express = require("express");
 const app = express();
 const bodyparser = require("body-parser");
+const date = require(__dirname+"/date.js");
 app.use(bodyparser.urlencoded({extended: true}));
 
 app.use(express.static("public"));
@@ -8,21 +10,11 @@ app.set('view engine', 'ejs');
 let items = ["DSA","kubernetes","python"];
 let workitems = [];
 
-
+console.log(date.getdate);
 app.get("/",function(req,res){
 
- let today = new Date();
- let currentday = today.getDay();
-  let options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long"
- };
- let day= today.toLocaleDateString("en-US",options);
-
-
+let day = date.getdate;
 res.render('list',{ listtitle: day,newitem:items });
-
 
 });
 
@@ -42,16 +34,16 @@ let item = req.body.newitem;
 
 })
 
-// let item = req.body.newitem;
-// workitems.push(item);
-// res.redirect("/work");
-
 app.get("/work",function(req,res){
  res.render('list',{listtitle: "work list",newitem:workitems})
     
     })
 
 
+app.get("/about",function (req,res){
+     
+    res.render('about');
+})
 
 
 app.listen(3000,function(){
